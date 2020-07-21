@@ -5,3 +5,5 @@ A simple python script that imports the feature data about different smartphones
 # Dependencies
 * Python-3.X
 * xlrd
+
+* I know that I should club all this under a common class and than instantiate an object as that will be much cleaner, but since this is just a fun project, I do not intend to restrucutre the code anymore :)
