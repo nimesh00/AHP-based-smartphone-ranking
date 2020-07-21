@@ -14,6 +14,11 @@
 
 * If the total features are more than 15, then the program will work without any problem, however, for the calcualtion of correct consistency index, the 'randomConsistencyIndex' needs to be updated. (The perfermonce matrix formed will be consistent in most of the cases.)
 
+* No code has been copied from any source, however, the following sources were referred for AHP algorithm
+    - https://www.ijeat.org/wp-content/uploads/papers/v6i1/A4764106116.pdf
+    - https://www.pmi.org/learning/library/analytic-hierarchy-process-prioritize-projects-6608#:~:text=The%20multi%2Dcriteria%20programming%20made,the%201970s%20by%20Thomas%20L.
+
+
 Author info:
 Name    : Nimesh Khandelwal
 E-Mail  : nimesh6798@gmail.com
@@ -211,13 +216,13 @@ def main():
     preferenceVector, maxEigenValue = evaluateFeaturePreference(preferenceRating)
     # print("preference vector, maxeigenvalue: ", preferenceVector, maxEigenValue)
     consistencyRatio = checkForConsistency(maxEigenValue, len(filtered_features))
-    print("Consistency Ratio: ", consistencyRatio)
+    print("Consistency Ratio : ", consistencyRatio)
     if consistencyRatio > 0.1:
         print("Some preferences are not consistent with others, try again with different values!!")
     # print(preferenceVector)
     weightedPreferenceVector = (avgCriteriaTable @ preferenceVector).T[0]
-    print(filtered_models)
-    print(weightedPreferenceVector)
+    # print(filtered_models)
+    # print(weightedPreferenceVector)
     rankedModels = [model for _,model in sorted(zip(weightedPreferenceVector, filtered_models), reverse=True)]
     print("Ranking based on the Calculations: \n", rankedModels)
 
